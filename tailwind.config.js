@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       boxShadow:{
-        customShadow:'10px 10px 14px 3px #7e7e7e'
+        customShadow:'10px 10px 14px 3px rgba(126, 126, 126, 0.5)'
       }
     },
   },

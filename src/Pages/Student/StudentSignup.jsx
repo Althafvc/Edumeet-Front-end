@@ -14,7 +14,7 @@ function StudentSignup() {
             <p className="description text-white text-sm md:text-lg w-full ml-10">A pre-scheduled meeting for your non-postponable future.</p>
           </div>
         </div>
-        <div className="form-area bg-[#ffffff] md:w-[50%] h-full flex justify-center pl-8 flex-col py-3 gap-6">
+        <div className="form-area flex flex-col bg-[#ffffff] md:w-[50%] h-full  justify-center pl-8py-3 gap-6">
           <div className="heading-area flex justify-center">
             <h2 className="text-[#4b4343] font-bold text-lg">Create your account</h2>
           </div>
@@ -82,8 +82,7 @@ function StudentSignup() {
             </form>
           </div>
           <div className="button-area w-full flex justify-center">
-            <button className=' outline-2 outline-gray-600 p-2 rounded-md w-24 font-semibold bg-gradient-to-br from-[rgb(9,75,160)] to-[#2092f4] text-white'>Submit</button>
-          </div>
+ <button className=' outline-2 outline-gray-600 p-2 rounded-md w-24 font-semibold bg-blue-600 text-white shadow-customShadow hover:border-2 hover:bg-white hover:text-black'>Submit</button>          </div>
         </div>
       </div>
     </div>
