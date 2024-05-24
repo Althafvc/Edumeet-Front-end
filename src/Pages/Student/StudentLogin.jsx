@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from '../../assets/images/Studentlogin.png'
+import DefaultButton from '../../Components/Student/DefaultButton';
 function StudentLogin() {
   return (
    <>
@@ -38,7 +39,7 @@ function StudentLogin() {
             </form>
           </div>
           <div className="button-area w-full flex justify-center">
-            <button className=' outline-2 outline-gray-600 p-2 rounded-md w-24 font-semibold bg-blue-600 text-white shadow-customShadow hover:border-2 hover:bg-white hover:text-black'>Submit</button>
+            <DefaultButton value='Login' clicked={null} classname={''}/>
           </div>
         </div>
       </div>
