@@ -86,9 +86,9 @@ function TeacherSignup() {
                   />
                 </div>
                 <div className="button-area w-full flex justify-center">
-                  <DefaultButton value='Submit' clicked={null} classname={'bg-white text-black shadow-none font-bold'}/>
+                  <DefaultButton value='Submit' clicked={null} classname={' bg-[#e3b93e] text-black shadow-none font-bold'}/>
                 </div>
-              </form>
+              </form> 
             </div>
           </div>
         </div>

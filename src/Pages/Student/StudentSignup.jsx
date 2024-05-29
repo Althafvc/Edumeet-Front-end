@@ -11,12 +11,9 @@ function StudentSignup() {
   const [alert, setAlert] = useState({ visible: false, type: '', msg: '' });
 
   async function onSubmit(data) {
-    console.log(data);
     try {
       const response = await axiosInstance.post('/student/signup', data);
       const result = response.data;
-      
-      console.log(result);
 
       if (!result.success) {
         setAlert({ visible: true, type: 'error', msg: result.message || 'Account not registered' });
@@ -53,7 +50,13 @@ function StudentSignup() {
                     className="border-0 border-b-[2.5px] border-gray-400 w-[80%] placeholder:text-sm focus:border-b-[#4e87c5] focus:outline-none"
                     placeholder="Enter your name"
                     aria-label="Full name"
-                    {...register('name', { required: 'Name is required' })}
+                    {...register('name', {
+                      required: 'Name is required',
+                      minLength: {
+                        value: 3,
+                        message: 'Name must be at least 3 characters long'
+                      }
+                    })}
                   />
                   {errors.name && <span className="text-red-600">{errors.name.message}</span>}
                 </div>
@@ -85,7 +88,12 @@ function StudentSignup() {
                     className="border-0 border-b-[2.5px] border-gray-400 w-[80%] placeholder:text-sm focus:border-b-[#4e87c5] focus:outline-none"
                     placeholder="Enter your phone number"
                     aria-label="Phone"
-                    {...register('phone', { required: 'Phone number is required' })}
+                    {...register('phone', { required: 'Phone number is required',
+                    minLength: {
+                      value: 10,
+                      message: 'Phone must be at least 10 characters long'
+                    }
+                     })}
                   />
                   {errors.phone && <span className="text-red-600">{errors.phone.message}</span>}
                 </div>
@@ -144,7 +152,7 @@ function StudentSignup() {
                   )}
                 </div>
                 <div className="button-area w-full flex justify-center">
-                  <DefaultButton value='Submit' clicked={handleSubmit(onSubmit)} classname={''} />
+                  <DefaultButton value='Submit' clicked={handleSubmit(onSubmit)} classname={' bg-[#0070ff] hover:bg-[#0070ff]  text-white shadow-none font-bold'}/>
                 </div>
               </form>
             </div>
