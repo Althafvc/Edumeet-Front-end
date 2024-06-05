@@ -7,11 +7,16 @@ import DefaultButton from '../../Components/Student/DefaultButton';
 const StudentLogin = () => {
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
+      .required('Email is required')
+      .matches( /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+      'Invalid email format'),
+
     password: Yup.string()
       .required('Password is required')
-      .min(8, 'Password must be at least 8 characters'),
+      .matches(
+        /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/,
+        'Invalid password format'
+      )
   });
 
   return (
