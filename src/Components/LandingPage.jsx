@@ -18,7 +18,7 @@ function LandingPage() {
             <div className='flex w-full justify-center'> <h1 className=' text-6xl md:text-8xl font-bold text-[#7391e0] font-newFont'>E</h1> <h1 className=' text-4xl md:text-6xl font-bold text-[#7391e0] mt-4 md:mt-6'>dumeet</h1> </div>
             <h1 className='w-full flex justify-center text-2xl md:text-4xl font-semibold'>E-Learning Platform</h1>
             <p className='w-3/4 flex justify-center text-center text-[#605e5e] text-lg md:text-xl'>A pre-scheduled meeting for your non-postponable future</p>
-            <div className='w-full flex justify-center'><button className='px-3 py-2 rounded font-bold text-white bg-[#7391e0]'>Get Started</button> </div>
+            <div className='w-full flex justify-center'><button className='px-3 py-2 rounded font-bold text-white bg-[#7391e0] active:scale-[.96] duration-50 ease-in-out '>Get Started</button> </div>
             </div>
            <div className="expansion2 w-full my-2 items-center md:w[50%] flex justify-center">
             <img src={lapbg} className='w-[65%] md:w-[45%]' alt="image not found"/>
