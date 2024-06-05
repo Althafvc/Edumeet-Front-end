@@ -24,6 +24,9 @@ function TeacherSignup() {
         //handling the correct response
       }else {
         setAlert({visible:true, type:'success', msg:'Registration successfull'})
+
+        setTimeout(()=> Navigate('teacher/signup'), 1000);
+
       }
       // handling the catch block
     }catch(err) {
@@ -31,7 +34,7 @@ function TeacherSignup() {
     }
 
     // clearing the Alert message after certain time
-    if (alert) setTimeout(() => setAlert(''), 1000);
+    // if (alert) setTimeout(() => setAlert(''), 1000);
 
   }
   return (
@@ -41,7 +44,7 @@ function TeacherSignup() {
           <div className={`welcome-area md:w-[50%] h-[230px] md:h-full flex justify-between md:py-5 items-center flex-col gap-5 py-2 md:gap-16`} style={{backgroundImage:`url(${Teacherbg})`,backgroundPosition:"center" ,backgroundSize:"cover"}}>
             <h2 className="text-[#ffffffef] text-[2rem] font-newFont text-center font-semibold">Welcome to Edumeet</h2>
             <div className="description-area w-full flex justify-center items-center">
-              <p className="description text-center text-[#ffffff96] pb-2 text-[.9rem] px-10 w-full ml-10">A pre-scheduled meeting for your non-postponable future.</p>
+              <p className="description text-center text-[#ffffff96] pb-2 text-[.9rem] px-10 w-full ml-10 md:mb-5">Share your passion, earn on your terms.  Empower the next generation with Edumeet</p>
             </div>
           </div>
           <div className="form-area flex flex-col bg-[#163c3a]  md:w-[50%] justify-center pl-8 py-3 gap-6">
@@ -170,17 +173,18 @@ function TeacherSignup() {
                   {/* { place for showing the appropriate error message if any } */}
                   {errors.confirmpassword && <span className='text-red-600'>{errors.confirmpassword.message}</span>}
 
-                  
+                  {/* { Showing the Alert to show the status of the registration } */}
+               
 
                 </div>
-                  {/* { Showing the Alert to show the status of the registration } */}
                 {alert.visible && (
-                    <span>
+                    <span className='mr-[80px]'>
                       <BasicAlerts type={alert.type} msg={alert.msg} />
                     </span>
                   )}
+                  
                 <div className="button-area w-full flex justify-center">
-                  <DefaultButton value='Submit' clicked={null} classname={' bg-[#e3b93e] text-black shadow-none font-bold'}/>
+                  <DefaultButton value='Submit' clicked={null} classname={' bg-[#e3b93e] text-black shadow-none font-bold mb-5'}/>
                 </div>
               </form> 
             </div>

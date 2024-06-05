@@ -26,7 +26,7 @@ function StudentSignup() {
         //handling the correct response
       } else {
         setAlert({ visible: true, type: 'success', msg: 'Registration successfull' });
-        setTimeout(() => Navigate('/student/home'), 1000);
+        setTimeout(() => Navigate('/student/login'), 1000);
       }
 
       // handling the catch block
