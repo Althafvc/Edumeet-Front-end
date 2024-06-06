@@ -49,7 +49,7 @@ function StudentSignup() {
               <p className="description text-white text-sm md:text-lg w-full ml-10">A pre-scheduled meeting for your non-postponable future.</p>
             </div>
           </div>
-          <div className="form-area flex flex-col bg-[#ffffff] md:w-[50%] h-full justify-center pl-8 py-3 gap-6">
+          <div className="form-area flex flex-col bg-[#ffffff] md:w-[50%] h-full justify-center pl-8 py-3 gap-4">
             <div className="heading-area flex justify-center">
               <h2 className="text-[#4b4343] font-bold text-lg">Create your account</h2>
             </div>
@@ -182,6 +182,7 @@ function StudentSignup() {
                   <DefaultButton value='Submit' clicked={handleSubmit(onSubmit)} classname={' bg-[#0070ff] hover:bg-[#0070ff]  text-white shadow-none font-bold'} />
                 </div>
               </form>
+              <p className='mt-2  font-newFont text-[#4b4343] text-center'>Do not have an account <a href="/student/signup" className='underline text-blue-800'>Register here</a></p>
             </div>
           </div>
         </div>
