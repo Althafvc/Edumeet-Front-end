@@ -11,7 +11,8 @@ export default {
       },
       fontFamily:{customFont:['Poetsen One'],
         newFont:['Jersey'],
-        efont:['Danfo']
+        headFont:['Oleo Script']
+        
       }
 
     },

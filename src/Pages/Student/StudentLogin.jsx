@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 // Main functional component for student login
 const StudentLogin = () => {
-  
+
   const Navigate = useNavigate()
   // State to handle error visibility, type, and message
   const [error, setError] = useState({ visible: false, type: '', msg: '' })
@@ -30,19 +30,21 @@ const StudentLogin = () => {
       )
   });
 
-  if(error) {setTimeout(() => {
-    setError('')
-  }, 1000);}
+  if (error) {
+    setTimeout(() => {
+      setError('')
+    }, 1000);
+  }
 
   return (
     <div className="content w-screen h-screen flex justify-center items-center bg-white">
       <div className="form-container px-2 md:px-0 rounded-2xl md:w-2/4 md:h-[480px] flex flex-col md:flex-row md:shadow-customShadow overflow-auto md:overflow-hidden h-auto">
-        
+
         {/* Left side with welcome image */}
         <div className="md:py-16 welcome-area md:w-[50%] h-full flex justify-center items-center flex-col gap-5 md:gap-16 overflow-hidden">
           <img src={Image} alt="image not found" className="md:w-full md:h-full w-auto h-auto" />
         </div>
-        
+
         {/* Right side with login form */}
         <div className="form-area bg-[#ffffff] md:w-[50%] md:h-full md:flex md:justify-center md:flex-col md:gap-10 md:items-center md:py-10 flex flex-col justify-center w-full gap-10 py-8">
           <div className="heading-area flex justify-center">
@@ -57,8 +59,8 @@ const StudentLogin = () => {
                 try {
                   const response = await axiosInstance.post('/student/login', values)
                   setError({ visible: true, type: 'success', msg: response.data.message || 'Login successful' })
-      
-                  setTimeout(() => Navigate('/student/home'),1000);
+                  localStorage.setItem('jwt', response.data.token)
+                  setTimeout(() => Navigate('/student/home'), 1000);
 
                 } catch (error) {
                   if (error.response.status == 400) {

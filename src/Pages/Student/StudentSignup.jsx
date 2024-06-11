@@ -182,7 +182,7 @@ function StudentSignup() {
                   <DefaultButton value='Submit' clicked={handleSubmit(onSubmit)} classname={' bg-[#0070ff] hover:bg-[#0070ff]  text-white shadow-none font-bold'} />
                 </div>
               </form>
-              <p className='mt-2  font-newFont text-[#4b4343] text-center'>Do not have an account <a href="/student/signup" className='underline text-blue-800'>Register here</a></p>
+              <p className='mt-2  font-newFont text-[#4b4343] text-center'>Already have an account <a href="/student/signup" className='underline text-blue-800'>Login here</a></p>
             </div>
           </div>
         </div>

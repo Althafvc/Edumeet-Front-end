@@ -1,15 +1,55 @@
 import React from 'react'
-import LandingpageNavbar from './Shared/LandingpageNavbar'
-import lapbg from '../assets/images/lapbg.svg'
-import Globe from '../assets/images/GLobe.svg'
-import Slotbooking from '../assets/images/Slotbooking.svg'
-import Class from '../assets/images/Class.svg'
-import Boost from '../assets/images/Boost.svg'
-import Footer from './Shared/LandingpageFooter'
+import LandingpageNavbar from './LandingpageNavbar'
+import lapbg from '../../assets/images/lapbg.svg'
+import Globe from '../../assets/images/GLobe.svg'
+import Slotbooking from '../../assets/images/Slotbooking.svg'
+import Class from '../../assets/images/Class.svg'
+import Boost from '../../assets/images/Boost.svg'
+import Footer from './LandingpageFooter'
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom'
+
 function LandingPage() {
 
-  function alertClicked () {
-    
+  const Navigate = useNavigate()
+
+  const customButtonStyles = {
+    backgroundColor: '#7391e0',
+    color: 'white',
+    border: 'none',
+    borderRadius: '5px',
+   padding:'10px 20px',
+    fontSize: '16px',
+    cursor: 'pointer',
+    margin: '12px 12px', // Adding margin for space between buttons
+  };
+
+  
+
+  function alertClicked() {
+    Swal.fire({
+      title: 'Welcome',
+      text: 'you are on the right place',
+      icon: '',
+      showCancelButton: true,
+      confirmButtonText: 'Sign in as a Student',
+      cancelButtonText: 'Sign in as a Tutor',
+      reverseButtons: true,
+      buttonsStyling: false,
+      didOpen: () => {
+        // Apply custom styles to the buttons
+        const confirmButton = Swal.getConfirmButton();
+        const cancelButton = Swal.getCancelButton();
+        Object.assign(confirmButton.style, customButtonStyles);
+        Object.assign(cancelButton.style, customButtonStyles);
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Navigate('/student/signup')
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Navigate('/teacher/signup')
+      }
+    });
   }
 
   return (

@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 // <Common Routes>
-import LandingPage from './Components/LandingPage';
+import LandingPage from './Components/Shared/LandingPage';
 // </Common Routes>
 
 
@@ -18,6 +18,7 @@ import StudentHome from './Pages/Student/StudentHome';
 
 // <Teacher Routes>
 import TeacherSignup from './Pages/Teacher/TeacherSignup';
+import TeacherLogin from './Pages/Teacher/TeacherLogin';
 // </Teacher Routes>
 
 
@@ -26,11 +27,21 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+
+          // common
           <Route path='/' element={<LandingPage/>}/>
+          //common
+
+          //Student
           <Route path='/student/signup' element={<StudentSignup/>}/>
           <Route path='/student/login' element={<StudentLogin/>}/>
-          <Route path='/teacher/signup' element={<TeacherSignup/>}/>
           <Route path='/student/home' element={<StudentHome/>}/>
+          //Student
+
+          //Teacher
+          <Route path='/teacher/signup' element={<TeacherSignup/>}/>
+          <Route path='/teacher/login' element={<TeacherLogin/>}/>
+          //Teacher
         </Routes> 
       </BrowserRouter>
     </>
