@@ -1,90 +1,53 @@
-import React from 'react'
+import React, { useState } from "react";
+import bg from '../../assets/images/otpbg.jpg'
+import DefaultButton from "../Student/DefaultButton";
+const OTP = () => {
+ 
+const [otp, setOtp] = useState(new Array(6).fill(''))
 
-function OTP() {
+function handleChange(e, index) {
+  const value = e.target.value;
 
-    const phone = 1
-    const otp = 1234
-    const countdown = 30
+  if(/^[0-9]$/.test(value) || value === "") {
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp)
+  }
 
-    function handleResend () {
-        
-    }
+  if(value && index <otp.length-1) {
+    document.getElementById(`otp-input-${index + 1}`).focus();
 
-  return (
-
-    <section className="container-fluid bg-body-tertiary d-block" style={{ height: '100vh' }}>
-    <div className="row justify-content-center" style={{ display: 'flex', alignContent: 'center' }}>
-      <div className="col-12 col-md-6 col-lg-4" style={{ minWidth: '500px', marginTop: '100px' }}>
-        <div className="card bg-white mb-1 mt-5" style={{ boxShadow: '0 12px 15px rgba(0, 0, 0, 0.02)', display: 'flex', alignItems: 'center' }}>
-          <div className="card-body p-5 text-center">
-            <h4>Verify</h4>
-            <p>Your code was sent to <span>{phone}</span></p>
-            <form action={`/user/otp/${phone}`} method="post">
-              <div className="otp-field mb-4">
-                <input
-                  type="number"
-                  name="digit1"
-                  maxLength="1"
-                  style={{ border: '2px solid grey' }}
-                  className="otp_input"
-                  value={otp.digit1}
-                  onChange={(e) => handleChange(e, 'digit1')}
-                />
-                <input
-                  type="number"
-                  name="digit2"
-                  maxLength="1"
-                  style={{ border: '2px solid grey' }}
-                  className="otp_input"
-                  value={otp.digit2}
-                  onChange={(e) => handleChange(e, 'digit2')}
-                />
-                <input
-                  type="number"
-                  name="digit3"
-                  maxLength="1"
-                  style={{ border: '2px solid grey' }}
-                  className="otp_input"
-                  value={otp.digit3}
-                  onChange={(e) => handleChange(e, 'digit3')}
-                />
-                <input
-                  type="number"
-                  name="digit4"
-                  maxLength="1"
-                  style={{ border: '2px solid grey' }}
-                  className="otp_input"
-                  value={otp.digit4}
-                  onChange={(e) => handleChange(e, 'digit4')}
-                />
-              </div>
-              <button type="submit" className="btn mb-3" style={{ backgroundColor: '#00224e', color: 'white' }}>
-                Verify
-              </button>
-            </form>
-
-            <div className="otp-timer mb-3" id="otp-timer">
-              Resend OTP in {countdown}s
-            </div>
-            <form action="/resendOTP" method="post">
-              <input type="hidden" name="userid" value="" />
-              <input type="hidden" name="email" value="" />
-              <button
-                className="btn mb-3"
-                id="resend"
-                style={{ backgroundColor: '#00224e', color: 'white' }}
-                type="button"
-                onClick={handleResend}
-                disabled={countdown > 0}
-              >
-                Resend OTP
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>)
+  }
 }
 
-export default OTP
+function handleSubmit () {
+  console.log('hello')
+}
+  return (
+    <>
+      <img src={bg} className="h-screen w-full" alt="Login background" />
+      <div className="w-[20rem] h-[18rem] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-2xl bg-custom-dark bg-opacity-65 flex items-center flex-col backdrop-blur-sm">
+        <div className="w-full text-[37px] font-bold text-white flex justify-center mb-8 mt-8">Verify OTP</div>
+        <form onSubmit={handleSubmit}>
+        <div className="flex space-x-2 mb-4">
+          {otp.map((data, index) => (
+            <input
+            key={index}
+              type="text"
+              value={data}
+              id={`otp-input-${index}`}
+              onChange={(e)=> handleChange(e, index)}
+              maxLength={1}
+              className="w-12 h-12 text-center text-2xl rounded-md border border-red-900"
+            />
+          ))}
+        </div>
+
+        <DefaultButton value='submit' clicked={null} classname='w-full h-10 bg-blue-500 mt-5 rounded-md hover:bg-blue-700 shadow-none'>Submit</DefaultButton>
+        </form>
+      </div>
+    </>
+  );
+}
+
+export default OTP;

@@ -40,9 +40,7 @@ function TeacherLogin() {
                         <button className="border-none rounded-3xl p-3 px-10 text-white text-center bg-[#299a78]"> Login </button>
 
                     </div>
-                    <p className="width-full ml-28 text-[#afdde0]  pb-5 md:text-sm md:pb-0 md:mt-4 md:ml-12 md:mr-4">Do not have an account <a href="" className="text-white hover:underline ml-20 font-semibold md:ml-0">Register here</a></p>
-
-
+                    <p className="width-full ml-28 text-[#afdde0]  pb-5 md:text-sm md:pb-0 md:mt-4 md:ml-12 md:mr-4">Do not have an account <a href="/teacher/signup" className="text-white hover:underline ml-20 font-semibold md:ml-0">Register here</a></p>
                 </div>
             </div>
         </div>
