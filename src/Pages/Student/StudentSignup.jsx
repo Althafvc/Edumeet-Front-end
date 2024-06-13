@@ -14,19 +14,22 @@ function StudentSignup() {
   const Navigate = useNavigate() // taking useNavigate for navigation
 
   async function onSubmit(data) {
+    const email = data.email
     try {
             // calling the API for submitting the data
       const response = await axiosInstance.post('/student/signup', data);
       const result = response.data; //storing the response data to result
-
+      
       //handling the error response
       if (!result.success) {
         setAlert({ visible: true, type: 'error', msg: result.message || 'Account not registered' });
 
         //handling the correct response
       } else {
+        const email=data.email
+        console.log(email,'there');
         setAlert({ visible: true, type: 'success', msg: 'Registration successfull' });
-        setTimeout(() => Navigate('/student/login'), 1000);
+        setTimeout(() => Navigate(`/student/otp?${new URLSearchParams({email:email})}`), 1000);
       }
 
       // handling the catch block

@@ -43,6 +43,7 @@ function App() {
           //Teacher
           <Route path='/teacher/signup' element={<TeacherSignup/>}/>
           <Route path='/teacher/login' element={<TeacherLogin/>}/>
+          <Route path='/teacher/otp' element={<OTP/>}/>
           //Teacher
         </Routes> 
       </BrowserRouter>
