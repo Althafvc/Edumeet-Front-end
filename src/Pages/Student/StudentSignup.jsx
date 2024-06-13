@@ -27,7 +27,6 @@ function StudentSignup() {
         //handling the correct response
       } else {
         const email=data.email
-        console.log(email,'there');
         setAlert({ visible: true, type: 'success', msg: 'Registration successfull' });
         setTimeout(() => Navigate(`/student/otp?${new URLSearchParams({email:email})}`), 1000);
       }
