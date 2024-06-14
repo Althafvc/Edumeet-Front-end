@@ -28,7 +28,7 @@ function StudentSignup() {
       } else {
         const email=data.email
         setAlert({ visible: true, type: 'success', msg: 'Registration successfull' });
-        setTimeout(() => Navigate(`/student/otp?${new URLSearchParams({email:email})}`), 1000);
+        setTimeout(() => Navigate(`/student/otp?${new URLSearchParams({email:email,role:'student'})}`), 1000);
       }
 
       // handling the catch block

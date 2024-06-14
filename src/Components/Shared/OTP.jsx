@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import bg from '../../assets/images/otpbg.jpg'
 import DefaultButton from "../Student/DefaultButton";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axiosInstance from "../../Instance/Axiosinstance";
 import BasicAlerts from "../BasicAlerts";
 
@@ -12,11 +12,15 @@ const OTP = () => {
   const [error, setError] = useState('');
   // State to store alert messages
   const [alert, setAlert] = useState({ type: '', msg: '' });
+
+  // using useNavigate for navigation
+  const Navigate = useNavigate()
   
   // Extracting email from query parameters
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const email = searchParams.get('email');
+  const role = searchParams.get('role')
 
   // Handle OTP input changes
   function handleChange(e, index) {
@@ -41,20 +45,34 @@ const OTP = () => {
       setError('Please enter your OTP');
     } else {
       try {
-        const queryData = { otp, email };
+        const queryData = { otp, email,role };
         // Sending OTP and email to the server for verification
         const response = await axiosInstance.post('student/otp', queryData);
-        const result = response.data;
-        console.log(result, 'Verification response');
-
         // Set success alert if verification is successful
-        setAlert({ type: 'success', msg: 'OTP verification successful' });
+        setAlert({ type: 'success', msg: response.data.msg });
+
+
+        // navigating to the desired login page
+
+        if(role=='student')  {
+          setTimeout(() => Navigate('/student/login'),1000);
+        }else {
+          setTimeout(() => Navigate('/teacher/login'),1000);
+        }
+
       } catch (err) {
         // Set error alert if verification fails
-        setAlert({ type: 'error', msg: 'OTP verification failed' });
+
+        setAlert({ type:'error', msg:err.response.data.msg });
+        
       }
     }
   }
+
+  if(error || alert) setTimeout(() => {
+    setError('')
+    setAlert('')
+  }, 1000);
 
   return (
     <>

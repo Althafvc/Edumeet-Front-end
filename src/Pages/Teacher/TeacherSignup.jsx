@@ -23,9 +23,10 @@ function TeacherSignup() {
 
         //handling the correct response
       }else {
+        const email = data.email
         setAlert({visible:true, type:'success', msg:'Registration successfull'})
 
-        setTimeout(()=> Navigate('teacher/signup'), 1000);
+        setTimeout(()=> Navigate(`/student/otp?${new URLSearchParams({email:email})}`), 1000);
 
       }
       // handling the catch block
@@ -36,6 +37,8 @@ function TeacherSignup() {
     // clearing the Alert message after certain time
     // if (alert) setTimeout(() => setAlert(''), 1000);
 
+
+    if(alert) setTimeout(() => setAlert(''), 1000);
   }
   return (
     <>
