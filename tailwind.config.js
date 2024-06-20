@@ -11,8 +11,16 @@ export default {
       },
       fontFamily:{customFont:['Poetsen One'],
         newFont:['Jersey'],
-        headFont:['Oleo Script']
+        headFont:['Oleo Script'],
+        font1:['Raleway'],
+        parafont:['Roboto Flex'],
+        studentButton:['Roboto Condensed'],
+        cardPara:['Montserrat'],
         
+
+      },
+      rotate:{
+        hr:'transform: rotate(90deg);'
       }
 
     },

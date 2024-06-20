@@ -3,14 +3,7 @@ function LandingpageNavbar() {
 
   return (
     <>
-     <div className="navbar flex justify-between items-center p-4  h-16 w-full">
-              <div className="nav-left">
-                <div className="hamburger p-2 cursor-pointer">
-                <div className="line h-0.5 w-6 my-1 bg-slate-700"></div>
-                <div className="line h-0.5 w-6 my-1 bg-slate-700"></div>
-                <div className="line h-0.5 w-6 my-1 bg-slate-700"></div>
-                </div>
-              </div>
+     <div className="navbar flex justify-between items-center p-4  h-16 w-full md:flex md:justify-between">
               <div className="nav-center">
                 <h1 className='font-customFont text-[#7391e0] text-xl md:text-4xl'>Edumeet</h1>
               </div>
