@@ -13,6 +13,7 @@ import OTP from './Components/Shared/OTP';
 import StudentLogin from './Pages/Student/StudentLogin';
 import StudentSignup from './Pages/Student/StudentSignup';
 import StudentHome from './Pages/Student/StudentHome';
+import Teachers from './Pages/Student/Teachers';
 // </Student Routes>
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/student/signup' element={<StudentSignup/>}/>
           <Route path='/student/login' element={<StudentLogin/>}/>
           <Route path='/student/home' element={<StudentHome/>}/>
+          <Route path='/student/teachers' element={<Teachers/>}/>
           <Route path='/student/otp' element={<OTP/>}/>
           //Student
 

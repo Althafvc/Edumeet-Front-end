@@ -25,13 +25,17 @@ function StudentHome() {
   return (
     <>
       <Navbar />
-      <div className="wrapper h-auto flex flex-col gap-32 md:gap-40">
+      <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
 
         {/* Section 1 */}
         <section className='w-full h-auto md:h-[600px] md:flex'>
           <div className="img-area md:w-[80%] mt-20 md:mt-0 h-[500px] md:h-full object-cover">
             <img src={img1} className='w-full h-full rounded-3xl md:rounded-none  ' alt="image not found" />
-            <div className="msg-area hidden md:block default:hidden w-auto h-auto px-5 py-5 200px bg-[#ffffff]  rounded-lg" style={{ position: 'absolute', top: '470px', left: '315px' }}>
+            <div 
+  className="msg-area hidden md:block default:hidden w-auto h-auto px-5 py-5 200px bg-[#ffffff] rounded-lg" 
+  style={{ position: 'absolute', top: '470px', left: '315px' }}
+>
+
               <hr className='h-[110px] w-[2.5px] bg-blue-600' style={{ position: 'absolute' }} />
               <p className='font-customFont ml-6'>“I never thought learning could <br />be this fun and convenient! <br /> Edumeet has changed the way <br />I approach education.” – Jazeen,<br /> student</p>
             </div>
@@ -78,7 +82,6 @@ function StudentHome() {
         <StudentCard img={StudentCard1Img} head={'Virtual English Class'} para={'Join our virtual English classes and improve your language skills from the comfort of your own home. Our expert teachers provide personalized instruction to help you achieve your language goals.'}/>
         <StudentCard img={StudentCard2Img} head={'Online Math Class'} para={'Enroll in our online math classes and excel in your studies. Our expert teachers provide personalized instruction to help you build a strong foundation in math and succeed in your academic and professional pursuits.'}/>
         <StudentCard img={StudentCard3Img} head={'Digital Art Class'} para={'Explore your creativity with our digital art classes. Our expert teachers provide personalized instruction to help you develop your artistic skills and express yourself through digital media.'}/>
-
         </div>
        </section>
 
@@ -94,7 +97,7 @@ function StudentHome() {
         </div>
         </div>
         <div className="side 2 w-full h-auto flex justify-center mt-10  md:items-center">
-          <img src={Section4Img} alt="image not found" className='rounded-3xl md:w-[500px] md:h-[500px] w-[90%] md:mt-28'/>
+          <img src={Section4Img} alt="image not found" className='rounded-3xl md:w-[500px] md:h-[500px] w-[90%] md:mt-28 hover:scale-[1.1] hover:transition duration-500 linear'/>
 
         </div>
       </section>
@@ -127,7 +130,7 @@ function StudentHome() {
         <StudentCard img={Teacher4img} head={'Juliana Silva'} para={'SCIENCE INSTRUCTOR'}/>
         </div>
         <div className="button-area w-full  mt-10 flex justify-center">
-          <StudentButton value={'See all instructors'}/>
+          <StudentButton value={'See all instructors'} onc/>
         </div>
        </section>
 
@@ -144,9 +147,6 @@ function StudentHome() {
       <section>
       <StudentFooter/>
       </section>
-
-
-
       </div>
     </>
 

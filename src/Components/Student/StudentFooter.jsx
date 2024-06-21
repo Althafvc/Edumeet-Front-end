@@ -42,7 +42,7 @@ function StudentFooter() {
                             <span className='flex gap-5'>
                             <AccessTimeIcon className='text-[#3a5bcc]'sx={{ width: 30, height: 30}}/>
                             <p className='text-white'> Mon - Fri : 9 am - 11 pm</p>
-                            </span>
+                            </span> 
                             <span className='flex gap-5'>
                             <EmailIcon className='text-[#3a5bcc]'sx={{ width: 30, height: 30}}/>
                             <p className='text-white'>althafvellanchola46@gmail.com</p>
