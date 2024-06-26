@@ -24,9 +24,9 @@ function StudentHome() {
 
   return (
     <>
-      <Navbar />
-      <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
+    <Navbar />
 
+      <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
         {/* Section 1 */}
         <section className='w-full h-auto md:h-[600px] md:flex'>
           <div className="img-area md:w-[80%] mt-20 md:mt-0 h-[500px] md:h-full object-cover">

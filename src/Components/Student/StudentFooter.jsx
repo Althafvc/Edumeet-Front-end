@@ -8,8 +8,8 @@ import EmailIcon from '@mui/icons-material/Email';
 function StudentFooter() {
 
   return (
-    <div className='footer w-full h-auto bg-[#000000] '>
-       <div className='w-[90%] flex justify-around '>
+    <div className='footer w-full h-auto bg-[#000000] pb-5'>
+       <div className='w-[90%] md:flex md:justify-around '>
        <div className="left h-auto flex flex-col items-center gap-5"> 
             <div className="head-area mt-[70px]"><h1 className='font-parafont font-bold text-white w-full text-2xl'>Edumeet</h1></div>
             <div className="icons-area flex gap-10">
@@ -32,7 +32,7 @@ function StudentFooter() {
         </div>
         <div className="center flex flex-col items-center  gap-6 justify-center  mt-[70px]">
             <h1 className='font-parafont font-bold text-white w-full text-2xl text-center'>Contact</h1>
-            <div className='flex flex-col h-full gap-8 '>
+            <div className='flex flex-col h-full gap-8 items-center'>
                 
                             <span className='flex gap-5'>
                             <PhoneEnabledIcon className='text-[#3a5bcc]'sx={{ width: 30, height: 30}}/>

@@ -23,7 +23,7 @@ function Teachers() {
   return (
 
 <>
-<div className="wrapper h-auto flex flex-col gap-32 md:gap-40">
+<div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
 
     {/* Section 1 */}
     <section className='w-full h-[300px] '>
@@ -43,6 +43,7 @@ function Teachers() {
         <StudentCard img={Teacher2img} head={'Ajay T'} para={'MATH INSTRUCTOR'}/>
         <StudentCard img={Teacher3img} head={'Jazeen pk'} para={'DIGITAL ART INSTRUCTOR'}/>
         <StudentCard img={Teacher4img} head={'Juliana Silva'} para={'SCIENCE INSTRUCTOR'}/>
+
         </div>
        </section>
 
@@ -102,12 +103,11 @@ function Teachers() {
 
 
        {/* Section 7*/}
-       <section className='w-full h-auto flex justify-center'>
+       <section className='w-full h-auto flex justify-center flex-col items-center md:flex-row'>
        <Courses icon={<CheckCircleOutlineIcon className='text-white' sx={{ width: 30, height: 30 }}/>} head={'Web Development'}  para={'Get hands-on experience with our Web Development Class, designed to equip you with the skills to create stunning websites and applications. Our expert instructors provide personalized guidance and support to enhance your learning experience.'}/>
        <Courses icon={<CheckCircleOutlineIcon className='text-white' sx={{ width: 30, height: 30 }}/>} head={'Music Theory'}  para={'Explore the principles of music with our Music Theory Class, designed for both novice and experienced musicians. Our expert instructors provide a comprehensive understanding of music theory, enhancing your skills and appreciation of music.'}/>
        <Courses icon={<CheckCircleOutlineIcon className='text-white' sx={{ width: 30, height: 30 }}/>} head={'Online Math Class'}  para={'Master the world of numbers with our Online Math Class, suitable for students of all ages and levels. From algebra to calculus, our expert instructors provide comprehensive guidance and support to enhance your mathematical abilities.'}/>
     </section>
-
 
       {/* Section 8*/}
       <section>
