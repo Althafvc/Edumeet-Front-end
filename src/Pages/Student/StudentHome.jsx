@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import Navbar from '../../Components/Student/Navbar'
 import img1 from '../../assets/images/student.webp'
 import ContentStyle from '../../Components/Student/ContentStyle'
@@ -21,12 +22,16 @@ import Teacher4img from '../../assets/images/Teacher4img.webp'
 import Section7Img from '../../assets/images/section7Img.webp'
 import StudentFooter from '../../Components/Student/StudentFooter'
 function StudentHome() {
+const Navigate = useNavigate()
 
-  return (
+function navigateToTeachers () {
+  Navigate('/student/teachers')
+} 
+ return (
     <>
     <Navbar />
 
-      <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
+      <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40 scroll-smooth">
         {/* Section 1 */}
         <section className='w-full h-auto md:h-[600px] md:flex'>
           <div className="img-area md:w-[80%] mt-20 md:mt-0 h-[500px] md:h-full object-cover">
@@ -54,7 +59,7 @@ function StudentHome() {
             <img src={Section2Img} alt="image not found" className='rounded-3xl md:w-[500px] md:h-[500px]' />
           </div>
 
-          <div className="content-area mt-3 md:pt-36">
+          <div className="content-area mt-3 md:pt-36" data-aos="fade-up">
             <p className='font-studentButton text-lg md:text-2xl'>Expert Teachers at Your Fingertips</p>
             <span className='flex gap-4 mt-6 md:mt-10 '><CheckCircleIcon sx={{ width: 30, height: 30 }} /> <p className='font-bold text-lg'>Quality Education</p></span>
             <span className='flex gap-4 mt-3 md:mt-6'><CheckCircleIcon sx={{ width: 30, height: 30 }} /> <p className='font-bold text-lg'>Flexible Scheduling</p></span>
@@ -130,7 +135,7 @@ function StudentHome() {
         <StudentCard img={Teacher4img} head={'Juliana Silva'} para={'SCIENCE INSTRUCTOR'}/>
         </div>
         <div className="button-area w-full  mt-10 flex justify-center">
-          <StudentButton value={'See all instructors'} onc/>
+          <StudentButton value={'See all instructors'} clicked={navigateToTeachers}/>
         </div>
        </section>
 

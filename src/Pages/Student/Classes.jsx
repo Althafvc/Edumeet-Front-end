@@ -16,7 +16,7 @@ import StudentFooter from '../../Components/Student/StudentFooter'
 function Classes () {
     return (
         <>
-        <div className=" w-full h-auto flex flex-col gap-40">
+        <div className=" w-full h-auto flex flex-col gap-40 scroll-smooth">
 
     {/* Section 1 */}
     <section className='w-full h-[300px]'>

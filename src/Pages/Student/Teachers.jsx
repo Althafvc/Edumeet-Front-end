@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import ContentStyle from '../../Components/Student/ContentStyle'
 import StudentCard from '../../Components/Student/StudentCard'
 import section1Img from '../../assets/images/teacherssection1Img.webp'
@@ -15,15 +16,17 @@ import Courses from '../../Components/Student/Courses'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import StudentFooter from '../../Components/Student/StudentFooter'
 
-
-
-
 function Teachers() {
+  const Navigate = useNavigate()
+
+  function navigateToClasses () {
+    Navigate('/student/classes')
+  }
 
   return (
 
 <>
-<div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40">
+<div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40 scroll-smooth">
 
     {/* Section 1 */}
     <section className='w-full h-[300px] '>
@@ -97,7 +100,7 @@ function Teachers() {
         <ContentStyle subHead={'Our Class'} mainHead={'Our classes'} Para={'Our classes are designed to be interactive and engaging, with a focus on student participation and collaboration. You will have access to a range of resources and materials to support your learning.'} style1={'text-center md:text-left'} style2={'text-center md:text-left'} style3={'text-center md:text-left'}/>
         </div>
         <div className="side2 mt-10"> 
-          <StudentButton value={'See All Classes'}/>
+          <StudentButton value={'See All Classes'} clicked={navigateToClasses}/>
         </div>
       </section>
 

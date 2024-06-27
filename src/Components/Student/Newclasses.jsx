@@ -9,7 +9,6 @@ function Newclasses({day, subject, time}) {
         <div className="subject text-4xl font-semibold font-parafont">{subject}</div>
         <div className="time text-2xl font-bold text-[#3a5bcc] font-parafont">{time}</div>
     </div>
-
     </>
   )
 }
