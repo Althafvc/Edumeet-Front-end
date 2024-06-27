@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<CommonRoutes />} />
-        <Route path='/student/*' element={<StudentRoutes />} />
-        <Route path='/teacher/*' element={<TeacherRoutes />} />
+         <Route path='/student/*' element={<StudentRoutes />} />
+         <Route path='/teacher/*' element={<TeacherRoutes />} /> 
       </Routes>
     </BrowserRouter>
   );
