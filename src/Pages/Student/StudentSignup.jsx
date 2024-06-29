@@ -13,13 +13,12 @@ function StudentSignup() {
 
   const Navigate = useNavigate() // taking useNavigate for navigation
 
-  async function onSubmit(data) {
+  async function onsubmit(data) {
     const email = data.email
     try {
             // calling the API for submitting the data
       const response = await axiosInstance.post('/student/signup', data);
       const result = response.data; //storing the response data to result
-      
       //handling the error response
       if (!result.success) {
         setAlert({ visible: true, type: 'error', msg: result.message || 'Account not registered' });
@@ -33,7 +32,9 @@ function StudentSignup() {
 
       // handling the catch block
     } catch (err) {
-      console.log(err, 'An error occurred during registration')
+      console.log('rrrrrrrrrrrrrrrrrrrrrrrr',err);
+      setAlert({ visible: true, type: 'error', msg: err.response.data.message} );
+      console.log(err.response, 'An error occurred during registration')
     }
   }
 
@@ -56,7 +57,7 @@ function StudentSignup() {
               <h2 className="text-[#4b4343] font-bold text-lg">Create your account</h2>
             </div>
             <div className="signupform-area">
-              <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
+              <form className="flex flex-col gap-5" onSubmit={handleSubmit(onsubmit)}>
                 <div className="form-outline flex flex-col">
                   <label htmlFor="name" className="text-[#6d6262] font-semibold">Full name</label>
                   <input
@@ -181,7 +182,7 @@ function StudentSignup() {
                   )}
                 </div>
                 <div className="button-area w-full flex justify-center">
-                  <DefaultButton value='Submit' clicked={handleSubmit(onSubmit)} classname={' bg-[#0070ff] hover:bg-[#0070ff]  text-white shadow-none font-bold'} />
+                  <DefaultButton value='Submit' clicked={handleSubmit(onsubmit)} classname={' bg-[#0070ff] hover:bg-[#0070ff]  text-white shadow-none font-bold'} />
                 </div>
               </form>
               <p className='mt-2  font-newFont text-[#4b4343] text-center'>Already have an account <a href="/student/signup" className='underline text-blue-800'>Login here</a></p>

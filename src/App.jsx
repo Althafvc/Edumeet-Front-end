@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import CommonRoutes from './Router/CommonRoutes';
 import StudentRoutes from './Router/StudentRoutes';
 import TeacherRoutes from './Router/TeacherRoutes';
+import AdminRoutes from './Router/AdminRoutes';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/*' element={<CommonRoutes />} />
          <Route path='/student/*' element={<StudentRoutes />} />
          <Route path='/teacher/*' element={<TeacherRoutes />} /> 
+         <Route path='/admin/*' element={<AdminRoutes />} />
       </Routes>
     </BrowserRouter>
   );

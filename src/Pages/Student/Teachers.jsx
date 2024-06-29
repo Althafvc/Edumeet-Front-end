@@ -53,7 +53,7 @@ function Teachers() {
 
        {/* Section 3*/}
       <section className='w-full md:flex md:gap-36 flex justify-center'>
-        <div className="side1 md:w-[78%] w-full h-auto px-3">
+        <div className="side1 md:w-[65%] w-full h-auto px-3">
         <ContentStyle subHead={'Our Expertise'} mainHead={'We are the eLearning Experts'} Para={'Our cutting-edge eLearning technology and innovative teaching methods make us the go-to experts for learners of all levels, from beginners to advanced professionals.'} style1={'text-center md:text-start'} style2={'text-center mt-3 md:text-start'} style3={'text-center mt-3 md:text-start'}/>
         </div>
       </section>
@@ -61,7 +61,7 @@ function Teachers() {
 
        {/* Section 4*/}
        <section className='w-full md:flex md:gap-36 flex justify-center'>
-        <div className="side1 md:w-[78%] w-full h-auto px-3">
+        <div className="side1 md:w-[65%] w-full h-auto px-3">
         <ContentStyle subHead={'Our Facilities'} mainHead={'A Seamless Learning Experience'} Para={'We offer a seamless and engaging learning experience, with a user-friendly platform that ensures easy access to courses, materials, and resources.'} style1={'text-center md:text-start'} style2={'text-center mt-3 md:text-start'} style3={'text-center mt-3 md:text-start'}/>
         </div>
       </section>
