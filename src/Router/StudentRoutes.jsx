@@ -6,7 +6,7 @@ import StudentHome from '../Pages/Student/StudentHome';
 import Teachers from '../Pages/Student/Teachers';
 import Classes from '../Pages/Student/Classes';
 import OTP from '../Components/Shared/OTP';
-import { Class } from '@mui/icons-material';
+import About from '../Pages/Student/About';
 
 const StudentRoutes = () => {
   return (
@@ -17,6 +17,7 @@ const StudentRoutes = () => {
       <Route path='/teachers' element={<Teachers />} />
       <Route path='/otp' element={<OTP />} />
       <Route path='/classes' element={<Classes/>}/>
+      <Route path='/about' element={<About/>}/>
     </Routes>
   );
 };

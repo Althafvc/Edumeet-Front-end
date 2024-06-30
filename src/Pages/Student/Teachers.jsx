@@ -79,16 +79,10 @@ function Teachers() {
 
 
         {/* Section 6*/}
-      <section className='w-full h-auto  flex justify-center'>
+        <section className='w-full h-auto  flex justify-center'>
         <div className="img-area w-[90%] h-[400px] rounded-3xl bg-cover bg-center bg-no-repeat" style={{backgroundImage:`url(${Section6Img})`}}>
-        <div className="bg-black opacity-65 w-full h-full rounded-3xl flex justify-center items-center px-10 flex-col md:flex-row md:gap-48">
-          <div className="side1 h-auto w-full flex flex-col gap-3 md:w-[60%]">
-          <h1 className='text-white text-3xl  md:text-5xl font-parafont font-bold text-center md:text-left'>Contact Us for Expert Guidance</h1>
-          <p className='text-white text-center md:text-left md:text-xl'>Our expert instructors are available to assist you with any inquiries, feedback, or support you need. Reach out to us via email or phone, and we’ll be happy to provide guidance and support to maximize your learning experience.</p>
-          </div>
-          <div className="side2">
-            <StudentButton value={'Contact Us'} classname={'mt-10 bg-[#0000ff] '}/>
-          </div>
+        <div className="bg-black opacity-75 w-full h-full rounded-3xl ">
+          <ContentStyle subHead={"LET'S JOIN US"} mainHead={'Be an Expert with us'} Para={'Experience immersive learning with our state-of-the-art eLearning platform, featuring interactive tools and engaging multimedia content.'} style1={'text-center pt-16 md:text-2xl text-blue-900'} style2={'text-center text-white mt-6'} style3={'text-center text-white px-3 mt-7 text-white'}/>
         </div>
         </div>
       </section>

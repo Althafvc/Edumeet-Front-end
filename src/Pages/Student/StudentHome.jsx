@@ -21,12 +21,13 @@ import Teacher3img from '../../assets/images/Teacher3img.webp'
 import Teacher4img from '../../assets/images/Teacher4img.webp'
 import Section7Img from '../../assets/images/section7Img.webp'
 import StudentFooter from '../../Components/Student/StudentFooter'
+
+
+
+
 function StudentHome() {
 const Navigate = useNavigate()
 
-function navigateToTeachers () {
-  Navigate('/student/teachers')
-} 
  return (
     <>
     <Navbar />
@@ -64,7 +65,7 @@ function navigateToTeachers () {
             <span className='flex gap-4 mt-6 md:mt-10 '><CheckCircleIcon sx={{ width: 30, height: 30 }} /> <p className='font-bold text-lg'>Quality Education</p></span>
             <span className='flex gap-4 mt-3 md:mt-6'><CheckCircleIcon sx={{ width: 30, height: 30 }} /> <p className='font-bold text-lg'>Flexible Scheduling</p></span>
             <span className='flex gap-4 mt-3 md:mt-6'><CheckCircleIcon sx={{ width: 30, height: 30 }} /> <p className='font-bold text-lg'>Expert Teachers</p></span>
-            <StudentButton classname={'mt-6 md:mt-10 w-full md:w-[200px] md:mr-28'} value={'More about us'} />
+            <StudentButton classname={'mt-6 md:mt-10 w-full md:w-[200px] md:mr-28'} clicked={()=> Navigate('/student/about')} value={'More about us'} />
             <div className="contain mt-10 md:mt-14 flex flex-col gap-5  md:flex-row md:gap-20">
               <Statistics value={'250+'} description={'Graduated'} />
               <Statistics value={'640+'} description={'Post graduates'} />
@@ -135,7 +136,7 @@ function navigateToTeachers () {
         <StudentCard img={Teacher4img} head={'Juliana Silva'} para={'SCIENCE INSTRUCTOR'}/>
         </div>
         <div className="button-area w-full  mt-10 flex justify-center">
-          <StudentButton value={'See all instructors'} clicked={navigateToTeachers}/>
+          <StudentButton value={'See all instructors'} clicked={()=> Navigate('/student/teachers')}/>
         </div>
        </section>
 

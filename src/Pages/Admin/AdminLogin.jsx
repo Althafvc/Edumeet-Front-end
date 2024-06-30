@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const AdminLogin = () => {
 const {register, handleSubmit, getValues, formState: {errors}}= useForm()
 const [alert, setAlert] = useState({Visible:false, type:'', msg:''})
-const [loginData, setLoginData] = useState({email:'', secretkey:''})
 
 const Navigate = useNavigate()
 
