@@ -59,14 +59,13 @@ const StudentLogin = () => {
                 // Handling form submission
                 try {
                   const response = await axiosInstance.post('/student/login', values)
+
                   setError({ visible: true, type: 'success', msg: response.data.message || 'Login successful' })
-                  localStorage.setItem('jwt', response.data.token)
+                  // localStorage.setItem('jwt', response.data.token)
                   setTimeout(() => Navigate('/student/home'), 1000);
 
                 } catch (error) {
-                  if (error.response.status == 400) {
-                    setError({ visible: true, type: 'error', msg: error.response.data.message || 'Login failed' })
-                  }
+                      setError({ visible: true, type: 'error', msg: error.response.data.message || 'Login failed' })
                 }
               }}
             >
@@ -92,11 +91,13 @@ const StudentLogin = () => {
                     />
                     <ErrorMessage name="password" component="div" className="text-red-500" />
                   </div>
-
+                  <div className="forgot-area w-full h-auto">
+                  <a href="" className='font-semibold text-[rgb(0,112,255)] hover:underline hover:text-blue-700'>Forgot Password</a>
+                  </div>
                   {/* Display error message if error exists */}
                   {error && <span> <BasicAlerts type={error.type} msg={error.msg} /></span>}
                   <div className="button-area w-full flex justify-center">
-                    <DefaultButton type="submit" value="Login" classname={'hover:bg-[#0070ff] hover:text-white'} />
+                    <DefaultButton type="submit" value="Login" classname={'bg-[#0070ff] text-white'} />
                   </div>
                 </Form>
               )}

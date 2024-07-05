@@ -5,7 +5,7 @@ import { useLocation, useNavigate, } from "react-router-dom";
 import axiosInstance from "../../Instance/Axiosinstance";
 import BasicAlerts from "../BasicAlerts";
 
-const OTP = () => {
+const ForgotOtp = () => {
   // State to store OTP input values
   const [otp, setOtp] = useState(new Array(4).fill(''));
   // State to store error message
@@ -15,12 +15,11 @@ const OTP = () => {
 
   // using useNavigate for navigation
   const Navigate = useNavigate()
-  
-  // Extracting email from query parameters
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
   const email = searchParams.get('email');
   const role = searchParams.get('role')
+
 
   // Handle OTP input changes
   function handleChange(e, index) {
@@ -45,23 +44,18 @@ const OTP = () => {
       setError('Please enter your OTP');
     } else {
       try {
-        const queryData = { otp, email,role };
+
         // Sending OTP and email to the server for verification
-        const response = await axiosInstance.post('student/otp', queryData);
+        const response = await axiosInstance.post(`/forgototp?role=${role}&email=${email}`,otp);
         // Set success alert if verification is successful
         setAlert({ type: 'success', msg: response.data.msg });
 
+        // navigating to the password changing page
 
-        // navigating to the desired login page
-        if(role=='student')  {
-          setTimeout(() => Navigate('/student/login'),1000);
-        }else {
-          setTimeout(() => Navigate('/teacher/login'),1000);
-        }
+        Navigate(`/passwordchange?${new URLSearchParams({email:email, role:role})}`);
 
       } catch (err) {
         // Set error alert if verification fails
-
         setAlert({ type:'error', msg:err.response.data.msg });
         
       }
@@ -110,4 +104,4 @@ const OTP = () => {
   );
 }
 
-export default OTP;
+export default ForgotOtp;

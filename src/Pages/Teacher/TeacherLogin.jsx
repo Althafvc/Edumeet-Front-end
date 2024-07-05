@@ -1,49 +1,104 @@
-import React from "react";
+import React, { useState } from "react";
 import Teacher from '../../assets/images/TeacherLogin.jpg';
+import axiosInstance from "../../Instance/Axiosinstance";
+import BasicAlerts from '../../Components/BasicAlerts'
+
 
 function TeacherLogin() {
+
+    const [loginData, setLoginData] = useState({email:'', password:''})
+    const [alert, setAlert] = useState({visibility:false, type:'', message:''})
+
+    function handleChange (e) {
+        e.preventDefault()
+        const {name, value} = e.target
+        setLoginData({...loginData, [name]:value})
+
+    }
+
+    async function onsubmit () {
+        try  {
+             const response = await axiosInstance.post('/teacher/login',loginData)
+             const result = response.data
+        }catch(err) {
+            console.log(err);
+            setAlert({visibility:true, type:'error', message:err.response.data.message})
+        }
+    }
     return (
-        <div className="wrapper w-screen h-screen flex items-center justify-center">
-            <div className="form-container w-full h-full md:flex md:w-[60%] md:h-auto overflow-hidden">
-
-                
-                <div className="wrap flex flex-col">
-                <div className="head-area w-full h-[85px] bg-[#17676d] md:bg-[#14767d] flex justify-center items-center">
-                    <h1 className="font-headFont text-[#ffffff] text-4xl font-bold">Edumeet</h1>
-                </div>
-
-                <div className="img-area w-full h-[300px] md:h-[385px] bg-cover bg-no-repeat bg-center">
-                    <img src={Teacher} alt="image not found" className="h-full"/>
-                </div>
-                </div>
-
-                <div className="form-area bg-[#14767d] h-auto flex flex-col gap-4   pt-4 pl-10 md:pt-16">
-                    <h1 className="text-white font-bold text-2xl">Share your <br/> passion with us...</h1>
-
-                    
-                        <form className="w-full flex flex-col gap-5 mb-2 mt-2 md:flex md:flex-col md:mb-0">
-                            <input 
-                                type="email" 
-                                className="rounded-3xl w-[80%] bg-[#1e6368] pl-10 h-[50px] text-white focus:outline-gray-400 focus:outline-none" 
-                                placeholder="Enter your Email" 
-                            />
-                            <input 
-                                type="password" 
-                                className="rounded-3xl w-[80%] bg-[#1e6368] pl-10 h-[50px] text-white focus:outline-gray-400 focus:outline-none" 
-                                placeholder="Enter your password" 
-                            />
-                             <a href="" className="width-full ml-36 text-[#afdde0] font-semibold md:text-sm md:ml-32">Forgot Password</a>
-                        </form>
-                    
-
-                    <div className="btn-area w-full">
-                        <button className="border-none rounded-3xl p-3 px-10 text-white text-center bg-[#299a78]"> Login </button>
-
-                    </div>
-                    <p className="width-full ml-28 text-[#afdde0]  pb-5 md:text-sm md:pb-0 md:mt-4 md:ml-12 md:mr-4">Do not have an account <a href="/teacher/signup" className="text-white hover:underline ml-20 font-semibold md:ml-0">Register here</a></p>
-                </div>
+        <>
+        <div className="outer w-screen h-screen flex flex-col justify-center items-center bg-[#1b3c3a]">
+        <div className="wrapper md:w-[30%] md:h-[30%] w-[90%] h-auto">
+          <h2 className="text-xl font-semibold text-center mb-6 text-white ml-2">Login to start earning</h2>
+          
+          <form>
+            <div className="mb-4">
+              <label htmlFor="email" className="block text-xl font-bold text-white">Email</label>
+              <input  
+                type="email"
+                id="email"
+                name='email'
+                className={`mt-1 block w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:text-gray-500`}
+                placeholder="Enter your email"
+                // {...register('email', {
+                //   required:'This field is required',
+                //   pattern: {
+                //     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+                //     message:'Invalid email address'
+                //   }
+                // })}
+              />
+              {/* {errors.email && <span className="text-white">{errors.email.message}</span>} */}
+    
             </div>
+    
+            <div className="relative w-full mb-4">
+              <div className="absolute inset-y-0 right-0 flex items-center px-2">
+                <button
+                  type="button"
+                  onClick={null}
+                  className="focus:outline-none"
+                >
+                  {/* <i className={passwordFieldType === 'password' ? 'fa-regular fa-eye' : 'fa-solid fa-eye'}></i> */}
+                </button>
+              </div>
+              <label htmlFor="Password" className="block text-xl font-bold text-white">Password</label>
+              <input
+                type='password'
+                id="secretkey" 
+                name="secretkey" 
+                className={`mt-1 block w-full p-3 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 placeholder:text-gray-500`}
+                placeholder={`Enter the Secret key`}
+                // {...register('secretkey', {
+                //   required:'This field is required',
+                //   minLength: {
+                //     value:4,
+                //     message:'Secret key must be 4 digits'
+                //   },
+                //   pattern: {
+                //     value: /^\d+$/,
+                //     message:'Only numbers are allowed'
+                //   }
+                // })}
+              />
+               {/* {errors.secretkey && <span className="text-white">{errors.secretkey.message}</span>} */}
+    
+            </div>
+            <a href="" className="text-white hover:underline hover:text-blue-400">Forgot Password</a>
+            <button
+              type="submit"
+              onClick={null}
+              className="w-full py-3 bg-blue-500 text-white text-xl font-semibold rounded-md hover:bg-blue-600 disabled:hover:bg-blue-500 mt-4 mb-8"
+            >
+              Login
+            </button>
+    
+          {alert && <span> <BasicAlerts type={alert.type} msg={alert.msg} /> </span>}
+    
+          </form>
         </div>
+        </div>
+        </>
     );
 }
 

@@ -16,6 +16,7 @@ function StudentSignup() {
   async function onsubmit(data) {
     const email = data.email
     try {
+
             // calling the API for submitting the data
       const response = await axiosInstance.post('/student/signup', data);
       const result = response.data; //storing the response data to result
@@ -32,7 +33,6 @@ function StudentSignup() {
 
       // handling the catch block
     } catch (err) {
-      console.log('rrrrrrrrrrrrrrrrrrrrrrrr',err);
       setAlert({ visible: true, type: 'error', msg: err.response.data.message} );
       console.log(err.response, 'An error occurred during registration')
     }
@@ -44,7 +44,7 @@ function StudentSignup() {
   return (
     <>
       <div className="container w-screen h-screen flex justify-center items-center bg-white">
-        <div className="form-container px-2 md:px-0 rounded-2xl md:w-2/4 md:h-[570px] flex flex-col md:flex-row shadow-customShadow overflow-auto md:overflow-hidden h-auto">
+        <div className="form-container overflow-auto md:overflow-y-scroll px-2 md:px-0 rounded-2xl md:w-2/4 md:h-[570px] flex flex-col md:flex-row shadow-customShadow  md:overflow-hidden h-auto">
           <div className="bg-gradient-to-br from-[rgb(9,75,160)] to-[#2092f4] welcome-area md:w-[50%] h-full flex justify-center items-center flex-col gap-5 py-2 md:gap-16">
             <h2 className="text-white font-sans text-2xl">Welcome to</h2>
             <img src={Goldenlogo} alt="Company Logo" className="w-[100px] h-[100px]" />
