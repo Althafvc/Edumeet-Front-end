@@ -36,7 +36,10 @@ function PasswordChange() {
 
               }, 800)
 
-            } // add teacher's code here
+            } else if(role=='teacher') {
+              Navigate('/teacher/login')
+
+            }
 
         } catch(err) {
 

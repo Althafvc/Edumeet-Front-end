@@ -92,7 +92,7 @@ const StudentLogin = () => {
                     <ErrorMessage name="password" component="div" className="text-red-500" />
                   </div>
                   <div className="forgot-area w-full h-auto">
-                  <span className='font-semibold text-[rgb(0,112,255)] hover:underline hover:text-blue-700' onClick={(()=>Navigate('/verifyemail'))}>Forgot Password</span>
+                  <span className='font-semibold text-[rgb(0,112,255)] hover:underline hover:text-blue-700' onClick={(()=>Navigate('/verifyemail?role=student'))}>Forgot Password</span>
                   </div>
                   {/* Display error message if error exists */}
                   {error && <span> <BasicAlerts type={error.type} msg={error.msg} /></span>}

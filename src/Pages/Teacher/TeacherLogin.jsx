@@ -24,14 +24,12 @@ const TeacherLogin = () => {
   }
 
   async function onsubmit (data) {
-    e.preventDefault()
 
     try {
       const response = await axiosInstance.post('/teacher/login',data)
       const result = response.data
         setAlert({type:'success', msg:result.message})
 
-        
         setTimeout(()=> Navigate('/teacher/home'),1000)
 
     }catch (err) {
@@ -101,7 +99,7 @@ if(alert) setTimeout(() => {
 
               </div>
               <div className="forgot-area  w-full h-auto">
-                <span className='font-semibold text-[rgb(0,112,255)] hover:underline hover:text-blue-700 ml-10 md:ml-0' onClick={() => Navigate('/verifyemail')}>Forgot Password</span>
+                <span className='font-semibold text-[rgb(0,112,255)] hover:underline hover:text-blue-700 ml-10 md:ml-0' onClick={() => Navigate('/verifyemail?role=teacher')}>Forgot Password</span>
               </div>
               <div className="button-area w-full flex justify-center">
                  

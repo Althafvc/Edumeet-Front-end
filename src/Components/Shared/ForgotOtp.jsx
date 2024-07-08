@@ -20,7 +20,6 @@ const ForgotOtp = () => {
   const email = searchParams.get('email');
   const role = searchParams.get('role')
 
-
   // Handle OTP input changes
   function handleChange(e, index) {
     const value = e.target.value;
@@ -48,15 +47,17 @@ const ForgotOtp = () => {
         // Sending OTP and email to the server for verification
         const response = await axiosInstance.post(`/forgototp?role=${role}&email=${email}`,otp);
         // Set success alert if verification is successful
-        setAlert({ type: 'success', msg: response.data.msg });
+
+        setAlert({ type: 'success', msg: response.data.message });
 
         // navigating to the password changing page
 
         Navigate(`/passwordchange?${new URLSearchParams({email:email, role:role})}`);
 
       } catch (err) {
+
         // Set error alert if verification fails
-        setAlert({ type:'error', msg:err.response.data.msg });
+        setAlert({ type:'error', msg:err.response.data.message });
         
       }
     }

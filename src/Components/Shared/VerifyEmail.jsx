@@ -2,31 +2,28 @@ import React, { useState } from 'react';
 import axiosInstance from '../../Instance/Axiosinstance';
 import BasicAlerts from '../BasicAlerts';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 function VerifyEmail() {
     const [alert, setAlert] = useState({ visibility: false, type: '', msg: '' })
-    const { register, handleSubmit, getValues, formState: { errors } } = useForm(); // using useForm hook for validation
+    const { register, handleSubmit, getValues, formState:{ errors }} = useForm(); // using useForm hook for validation
+    const location = useLocation()
+    const queryParams = new URLSearchParams(location.search)
+    const role = queryParams.get('role')
  const Navigate = useNavigate()
 
     async function onsubmit(data) {
         try {
-            const response = await axiosInstance.post('/verifyemail?role=student', data)
+            const response = await axiosInstance.post(`/verifyemail?role=${role}`, data)
             const result = response.data
             const email = response.data.email
-            const role = response.data.role
-            
             setAlert({ visibility: true, type: 'success', msg: result.message })
-
+           
             Navigate(`/forgototp?${new URLSearchParams({email:email, role:role})}`);
 
 
         } catch (err) {
 
-            if (err) {
-                console.log(err);
-                setAlert({ visibility: true, type: 'error', msg: err.response.data.message })
-            }
-
+          setAlert({ visibility: true, type: 'error', msg: err.response.data.message})
         }
     }
      if(alert) setTimeout(() => { setAlert('')}, 800);
