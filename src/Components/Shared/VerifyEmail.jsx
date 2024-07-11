@@ -9,7 +9,7 @@ function VerifyEmail() {
     const location = useLocation()
     const queryParams = new URLSearchParams(location.search)
     const role = queryParams.get('role')
- const Navigate = useNavigate()
+    const Navigate = useNavigate()
 
     async function onsubmit(data) {
         try {

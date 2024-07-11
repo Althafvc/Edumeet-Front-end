@@ -30,8 +30,7 @@ const Navigate = useNavigate()
 
  return (
     <>
-    <Navbar />
-
+   
       <div className="wrapper h-auto w-full flex flex-col gap-32 md:gap-40 scroll-smooth">
         {/* Section 1 */}
         <section className='w-full h-auto md:h-[600px] md:flex'>

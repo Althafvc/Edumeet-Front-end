@@ -7,10 +7,12 @@ import Teachers from '../Pages/Student/Teachers';
 import Classes from '../Pages/Student/Classes';
 import OTP from '../Components/Shared/OTP';
 import About from '../Pages/Student/About';
+import StudentLayout from '../../Layouts/StudentLayout';
 
 const StudentRoutes = () => {
   return (
     <Routes>
+      <Route path='/' element={<StudentLayout/>}>
       <Route path='/signup' element={<StudentSignup />} />
       <Route path='/login' element={<StudentLogin />} />
       <Route path='/home' element={<StudentHome />} />
@@ -18,6 +20,7 @@ const StudentRoutes = () => {
       <Route path='/otp' element={<OTP />} />
       <Route path='/classes' element={<Classes/>}/>
       <Route path='/about' element={<About/>}/>
+      </Route>
     </Routes>
   );
 };
